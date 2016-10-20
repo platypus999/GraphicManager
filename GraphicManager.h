@@ -23,7 +23,7 @@ namespace graph_man
 
 
 	//derivateやdivendしたものは子データとして管理される
-	class GraphicData : Uncopyable_Base
+	class GraphicData
 	{
 	public:
 		GraphicData(int gh,int gr);
@@ -82,6 +82,10 @@ namespace graph_man
 		//再度参照は不可
 		//戻り値：消去したグループ固有値
 		int erase();
+		//デフォルトパスを設定する
+		void setPass(std::string pass_);
+		//デフォルト拡張子を設定する
+		void setExtension(std::string extension_);
 
 		GraphicNode operator [](std::string n);
 
@@ -91,6 +95,9 @@ namespace graph_man
 		GraphicManager(const GraphicManager &other);
 		GraphicManager &operator=(const GraphicManager &other) = delete;
 		std::map<std::string, std::shared_ptr<GraphicData>> data;
+		std::string pass;
+		std::string extension;
+
 		int gr;
 	};
 

@@ -17,7 +17,7 @@ GraphicNode::GraphicNode(std::weak_ptr<GraphicData>wk, coordinate siz)
 	}
 }
 
-#error ‰Ê‚½‚µ‚Ärot=1.0‚Ìê‡‚Íˆ—‚ªŒyŒ¸‰»‚³‚ê‚é‚Ì‚¾‚ë‚¤‚©H
+//#error ‰Ê‚½‚µ‚Ärot=1.0‚Ìê‡‚Íˆ—‚ªŒyŒ¸‰»‚³‚ê‚é‚Ì‚¾‚ë‚¤‚©H
 int GraphicNode::draw(coordinate position, std::pair<double, double> anchor, std::pair<double, double> ext, double rot, int trans, int flip)
 {
 	if (!check())return -2;

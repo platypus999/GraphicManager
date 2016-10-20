@@ -7,14 +7,14 @@ GraphicManager& grm = GraphicManager::getInstance();
 
 int GraphicManager::group()
 {
-	++gr;
+	return ++gr;
 }
 
-GraphicManager::GraphicManager() :gr(0) {}
+GraphicManager::GraphicManager() :gr(0),pass(""),extension(".png") {}
 
 GraphicNode GraphicManager::load(std::string key, std::string filename)
 {
-	int gh = LoadGraph((filename.empty() ? key : filename).c_str());
+	int gh = LoadGraph((pass + (filename.empty() ? key : (filename + extension))).c_str());
 	data.emplace(key, std::make_shared<GraphicData>(gh, gr));
 	return (*this)[key];
 }
@@ -34,6 +34,17 @@ int GraphicManager::erase()
 	}
 	return --gr;
 }
+
+void GraphicManager::setPass(std::string p_)
+{
+	pass = std::move(p_);
+}
+
+void GraphicManager::setExtension(std::string e_)
+{
+	extension = std::move(e_);
+}
+
 
 GraphicNode GraphicManager::operator[](std::string n)
 {

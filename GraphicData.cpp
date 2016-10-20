@@ -28,7 +28,7 @@ int GraphicData::getgroup()
 
 void GraphicData::pushch(int gh)
 {
-	child.emplace_back(gh);
+	child.emplace_back(gh, groupnum);
 }
 
 GraphicData& GraphicData::operator [](int n)
